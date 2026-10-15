@@ -1,0 +1,21 @@
+
+name: Shell Script CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check shell syntax
+        run: bash -n hello.sh
+
+      - name: Run shell script
+        run: bash hello.sh
